@@ -1,0 +1,69 @@
+{
+    "name": "arreasystems/ek_template",
+    "description": "EK management tools installation template based on EK projects.",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [ ],
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "scripts": {
+      "pre-install-cmd": [
+        "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+      ],
+      "pre-update-cmd": [
+        "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+      ],
+      "post-install-cmd": [
+        "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+      ],
+      "post-update-cmd": [
+        "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+      ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "enable-patching": true,
+        "patches": {
+
+        },
+        "merge-plugin": {
+            "require": [
+                "html/profiles/contrib/ek_profile/composer.json"
+            ]
+        },
+        "installer-paths": {
+            "html/core": ["type:drupal-core"],
+            "html/libraries/{$name}": ["type:drupal-library"],
+            "html/modules/{$name}": ["type:drupal-module"],
+            "html/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "html/themes/contrib/{$name}": ["type:drupal-theme"],
+            "html/drush/contrib/{$name}": ["type:drupal-drush"]
+        }
+    },
+    "require": {
+        "php": ">=7.0.8",
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6.5",
+        "drupal-composer/drupal-scaffold": "^2.5",
+        "drupal/console": "^1.0.2",
+        "drupal/core": "^8.7.1",
+        "drush/drush": "^9.0.0",
+        "vlucas/phpdotenv": "^2.4",
+        "webflo/drupal-finder": "^1.0.0",
+        "webmozart/path-util": "^2.3",
+        "wikimedia/composer-merge-plugin": "^1.4",
+        "zaporylie/composer-drupal-optimizations": "^1.0"
+    }
+}
