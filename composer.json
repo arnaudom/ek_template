@@ -54,11 +54,12 @@
     },
     "require": {
         "php": ">=7.0.8",
+        "arreasystems/ek_profile": "dev-master",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/console": "^1.0.2",
-        "drupal/core": "^8.7.1",
+        "drupal/core": "^8.8.0",
         "drush/drush": "^9.0.0",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
