@@ -7,6 +7,10 @@
     "prefer-stable": true,
     "repositories": [
         {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
             "type": "package",
             "package": {
                 "name": "fullcalendar/fullcalendar",
