@@ -921,7 +921,7 @@
                 "natxet/cssmin": "3.0.4",
                 "nikic/php-parser": "^3.1.5",
                 "patchwork/jsqueeze": "~2",
-                "pear/archive_tar": "^1.4.4",
+                "pear/archive_tar": "^1.4.13",
                 "php-coveralls/php-coveralls": "^1",
                 "phpunit/php-code-coverage": "~2|~4",
                 "sebastian/comparator": "^1.2.4",
