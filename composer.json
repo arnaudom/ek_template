@@ -1,10 +1,16 @@
 {
     "name": "arreasystems/ek_template",
-    "description": "EK management tools installation template based on EK projects.",
+    "description": "EK management tools installation template based on EK projects with Drupal 9.",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "authors": [
+        {
+            "name": "ARREA Systems",
+            "role": ""
+        }
+    ],
     "repositories": [
         {
             "type": "composer",
@@ -14,9 +20,9 @@
             "type": "package",
             "package": {
                 "name": "fullcalendar/fullcalendar",
-                "version": "3.10.0",
+                "version": "3.10.2",
                 "dist": {
-                    "url": "https://github.com/fullcalendar/fullcalendar/releases/download/v3.10.0/fullcalendar-3.10.0.zip",
+                    "url": "https://github.com/fullcalendar/fullcalendar/releases/download/v3.10.2/fullcalendar-3.10.2.zip",
                     "type": "zip"
                 },
                 "type": "drupal-library"
@@ -109,30 +115,57 @@
                 "html/profiles/contrib/ek_profile/composer.json"
             ]
         },
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "html/"
+            }
+        },
         "installer-paths": {
             "html/core": ["type:drupal-core"],
             "html/libraries/{$name}": ["type:drupal-library"],
-            "html/modules/{$name}": ["type:drupal-module"],
+            "html/modules/contrib/{$name}": ["type:drupal-module"],
             "html/profiles/contrib/{$name}": ["type:drupal-profile"],
             "html/themes/contrib/{$name}": ["type:drupal-theme"],
-            "html/drush/contrib/{$name}": ["type:drupal-drush"]
+            "drush/Commands/contrib/{$name}": ["type:drupal-drush"],
+            "html/modules/custom/{$name}": ["type:drupal-custom-module"],
+            "html/profiles/custom/{$name}": ["type:drupal-custom-profile"],
+            "html/themes/custom/{$name}": ["type:drupal-custom-theme"]
         }
     },
     "require": {
-        "php": ">=7.0.8",
+        "php": ">=7.3.0",
         "arreasystems/ek_profile": "dev-master",
-        "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",
         "drupal/console": "^1.0.2",
-        "drupal/core": "^8.8.0",
-        "drush/drush": "^9.7.1 | ^10.0.0",
+        "drupal/core-composer-scaffold": "^9",
+        "drupal/core-recommended": "^9",
+        "drupal/core-project-message": "^9",
+        "drush/drush": "^10.3",
         "vlucas/phpdotenv": "^4.0",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
-        "wikimedia/composer-merge-plugin": "^1.4",
-        "zaporylie/composer-drupal-optimizations": "^1.0"
+        "wikimedia/composer-merge-plugin": "^2.0"
     },
-    "require-dev": {
-        "drupal/core-dev": "^8.8.0"
-    }
+    "drupal-core-project-message": {
+        "include-keys": ["homepage", "support"],
+        "post-create-project-cmd-message": [
+            "<bg=blue;fg=white>                                                         </>",
+            "<bg=blue;fg=white>  Congratulations, you’ve installed the EK management  </>",
+            "<bg=blue;fg=white>  codebase for Drupal 9 from the template </>",
+            "<bg=blue;fg=white>  arreasystems/ek_template.   </>",
+            "<bg=blue;fg=white>                                                         </>",
+            "",
+            "<bg=yellow;fg=black>Next steps</>:",
+
+            "  * follow standard site install: https://www.drupal.org/docs/8/install",
+            "  * tutorial profile installation: https://arrea-systems.com/tutorial-setup",
+            "  * watch video: Setup | Modules and company creation",
+            "  * Read the user guide: https://www.drupal.org/docs/user_guide/en/index.html",
+            "  * Get support: https://github.com/arnaudom/ek_template/issues",
+            "  * Get involved with the project:",
+            "      https://github.com/arnaudom/ek",
+            "  * Remove the plugin that prints this message:",
+            "      composer remove drupal/core-project-message"
+            ]
+        }
 }

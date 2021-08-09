@@ -12,7 +12,7 @@ It's just composer, isn't it awesome? :)
 ## Installation of EK management tools
 
 ```
-composer create-project arreaysystems/ek_template:dev-master DIRECTORY --no-interaction
+composer create-project arreasystems/ek_template:dev-master DIRECTORY --no-interaction
 ```
 
 Composer will create a new directory called DIRECTORY. Inside you will find the html directory with the entire code base of [EK management tools profile](https://github.com/arnaudom/ek_profile). You should be able to install it like any other Drupal site. 
